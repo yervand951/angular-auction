@@ -1,0 +1,16 @@
+<div class="controller">
+    <div class="col-md-30 col-md-offset-15">
+        <form>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email" ng-model="User.email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" ng-model="User.password">
+            </div>
+
+            <button type="submit" class="btn btn-default" ng-click="login(User)">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="container" >
+    <div class="row">
+        <header>
+            <ul class="nav nav-tabs">
+                <li role="presentation">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                        User <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a href="">All Users</a></li>
+                        <li role="presentation"><a href="">Win Users</a></li>
+                        <li role="presentation"><a href="">Bind Users</a></li>
+                    </ul>
+                </li>
+                <li role="presentation">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#/all" role="button" aria-haspopup="true" aria-expanded="false">
+                        Product <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a ng-click="allProduct()">All Products</a></li>
+                        <li role="presentation"><a ng-click="createProduct()">Create Product</a></li>
+                    </ul>
+                </li>
+                <li role="presentation"><a href="#">Auction</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Dropdown <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#">Profile</a></li>
+                        <li role="presentation"><a href="#">Messages</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <div class="container-fluid" ng-show="showCont['allProduct']" >
+                <h1>Products</h1>
+                <div ng-repeat="product in products">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="prod-cont">
+                            <ul rn-carousel rn-carousel-pause-on-hover="" rn-carousel-auto-slide="" rn-carousel-index="carouselIndex" class="image">
+                                <li ng-repeat="image in product.images"><img src="{{image}}"/></li>
+                            </ul>
+                            <h2><a ng-click="singleProduct(product.id)">{{product.name}}</a></h2>
+                            <p>{{product.description}}</p>
+                            <p>{{product.real-price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" ng-show="showCont['createProduct']"  ng-controller="productCreateCtrl">
+                <div class="container">
+                    <form  enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Product Name:</label>
+                            <input type="text" ng-model="Product.name" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="real-price" >Real Price</label>
+                            <input type="text" ng-model="Product.realPrice" id="real-price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="started-price" >Started Price</label>
+                            <input type="text" ng-model="Product.startedPrice" id="started-price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="datetime" >Started Time</label>
+                            <input type="datetime-local" ng-model="Product.startedTime" id="datetime" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" ng-model="Product.description" id="description"></textarea>
+                        </div>
+
+                        <input ng-model="Product.images"   image="Product.images" type="file" accept="image/*" multiple
+                               image="images"
+                               resize-max-height="300"
+                               resize-max-width="250" />
+                        <img class="img-thumbnail" ng-repeat="img in Product.images" ng-src="{{img.resized.dataURL}}" />
+
+
+                        <button type="submit" ng-click="create(Product)" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container-fluid" ng-show="showCont['singleProduct']"  >
+                <div class="col-md-5"><h2>test</h2></div>
+                <div class="col-md-7"></div>
+            </div>
+
+        </section>
+    </div>
+</div>

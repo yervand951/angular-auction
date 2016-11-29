@@ -1,0 +1,1 @@
+var productAuction = angular.module('productAuction',[]);

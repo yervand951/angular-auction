@@ -1,0 +1,18 @@
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="name">Product Name:</label>
+            <input type="text" ng-model="Product.name" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+            <label for="real-price" >Price</label>
+            <input type="text" ng-model="Product.price" id="real-price" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" ng-model="Product.description" id="description"></textarea>
+        </div>
+
+        <button type="submit" ng-click="create(Product)" class="btn btn-default">Submit</button>
+    </form>
+</div>

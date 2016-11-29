@@ -1,0 +1,27 @@
+{
+  "name": "auction",
+  "version": "0.0.1",
+  "description": "description",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "My",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-sass-bootstrapper": "^1.1.0"
+  },
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-ui-router": "^0.3.2",
+    "ngstorage": "^0.3.11"
+  }
+}

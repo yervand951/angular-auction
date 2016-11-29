@@ -1,0 +1,113 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-20 col-sm-60">
+                <h2><a href="#!/logout">Logout</a></h2>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-fluid" >
+    <div class="row">
+        <section>
+            <div class="col-md-15 col-sm-15">
+                <ul class="nav admin-left-siderbar">
+                    <li role="presentation">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">
+                            User <span class="caret"></span>
+                        </a>
+                        <ul ng-show="bool" class="child-menu dropdown-menu">
+                            <li role="presentation"><a href="">All Users</a></li>
+                            <li role="presentation"><a href="">Win Users</a></li>
+                            <li role="presentation"><a href="">Bind Users</a></li>
+                        </ul>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-toggle"  ng-click="showProduct()"  data-toggle="dropdown" href="#!/product" role="button" aria-haspopup="true" aria-expanded="false">
+                            Product <span class="caret"></span>
+                        </a>
+                        <ul ng-show="{{showCont['product']}}"  class="child-menu dropdown-menu">
+                            <li role="presentation"><a ng-click="allProduct()">All Products</a></li>
+                            <li role="presentation"><a ng-click="createProduct()">Create Product</a></li>
+                        </ul>
+                    </li>
+                    <li role="presentation">
+                        <a class="dropdown-toggle" ng-click="showAuction()" data-toggle="dropdown" href="#!/auction" role="button" aria-haspopup="true" aria-expanded="false">
+                            Auction <span class="caret"></span>
+                        </a>
+                        <ul ng-show="{{showCont['auction']}}" class="child-menu dropdown-menu">
+                            <li role="presentation"><a ng-click="allProduct()">All Auctions</a></li>
+                            <li role="presentation"><a ng-click="createProduct()">Create Auction</a></li>
+                        </ul>
+                    </li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            Dropdown <span class="caret"></span>
+                        </a>
+                        <ul ng-show="bool" class="child-menu dropdown-menu">
+                            <li role="presentation"><a href="#">Home</a></li>
+                            <li role="presentation"><a href="#">Profile</a></li>
+                            <li role="presentation"><a href="#">Messages</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-45 col-sm-45">
+                <div class=""ng-show="showCont['allProduct']" >
+                    <h1>Products</h1>
+                    <div class="col-md-20 col-sm-30" ng-repeat="product in products">
+                        <div class="">
+                            <div class="prod-cont">
+                                <ul rn-carousel rn-carousel-pause-on-hover="" rn-carousel-auto-slide="" rn-carousel-index="carouselIndex" class="image">
+                                    <li ng-repeat="image in product.images"><img src=""/></li>
+                                </ul>
+                                <h2><a ng-click="singleProduct(product.id)">{{product.name}}</a></h2>
+                                <p>{{product.description}}</p>
+                                <p>{{product.price}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" ng-show="showCont['createProduct']"  ng-controller="productCreateCtrl">
+                    <div class="container">
+                        <form  enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="name">Product Name:</label>
+                                <input type="text" ng-model="Product.name" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="real-price" >Price</label>
+                                <input type="text" ng-model="Product.price" id="real-price" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description:</label>
+                                <textarea class="form-control" ng-model="Product.description" id="description"></textarea>
+                            </div>
+
+                            <input ng-model="Product.images"   image="Product.images" type="file" accept="image/*" multiple
+                                   image="images"
+                                   resize-max-height="300"
+                                   resize-max-width="250" />
+                            <img class="img-thumbnail" ng-repeat="img in Product.images" ng-src="" />
+
+
+                            <button type="submit" ng-click="create(Product)" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="" ng-show="showCont['singleProduct']"  >
+                    <div class="col-md-5"><h2>test</h2></div>
+                    <div class="col-md-7"></div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
