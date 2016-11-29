@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(../node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -10886,13 +10887,41 @@ body li {
 }
 
 .prod-cont {
+  max-height: 310px;
+  min-height: 310px;
   padding-top: 25px;
   padding-bottom: 25px;
   position: relative;
+  border: 1px solid #eaeaea;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+  background-color: #fdffff;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.prod-cont:hover img {
+  width: 100%;
+  margin-left: 0px;
+  margin-top: -5%;
+  opacity: 1;
 }
 
 .prod-cont img {
   border-radius: 10px;
+  width: 90%;
+  margin-left: 5%;
+  cursor: pointer;
+  transition: all .5s;
+  opacity: 0.9;
+}
+.prod-cont h2 a {
+  padding: 10px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #000;
+  cursor: pointer;
 }
 
 .prod-cont h2 {
@@ -10962,6 +10991,25 @@ body li {
   box-shadow: none;
   cursor: pointer;
   transition: all .5s;
+}
+.admin-left-siderbar li ul a {
+  color: #fff;
+  transition: all .5s;
+  font-family: inherit;
+  font-size: 19px;
+  text-shadow: 1px 1px 2px #504949, 0 0 1em #464646;
+}
+
+.admin-left-siderbar a {
+  color: #fff;
+  transition: all .5s;
+  font-family: inherit;
+  font-size: 19px;
+  text-shadow: 1px 1px 2px #504949, 0 0 1em #464646;
+}
+
+.admin-left-siderbar {
+  background-color: #2d2d2d;
 }
 
 /*# sourceMappingURL=style.css.map */

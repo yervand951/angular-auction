@@ -33,6 +33,7 @@ module.exports = function(grunt) {
                 src: [
                     'angular/angular.min.js',
                     'angular/angular-route.min.js',
+                    'angular/modules/imageupload.js',
                     'node_modules/dist/restangular/release/restangular.min.js',
                     'node_modules/ngstorage/ngStorage.min.js',
                     'node_modules/angular-ui-router/release/angular-ui-router.min.js',
@@ -40,6 +41,7 @@ module.exports = function(grunt) {
                     'node_modules/angular-aria/angular-aria.min.js',
                     'node_modules/angular-jk-carousel/dist/jk-carousel.min.js',
                     'node_modules/angular-material/angular-material.min.js',
+                    'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js',
                     'angular/sotos.angular-slider.min.js'
                 ],
                 dest: 'public/modul.min.js',

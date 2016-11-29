@@ -6,7 +6,8 @@ angular.module('adminPanel',[
     'ngStorage',
     'ngAnimate',
     'ngMaterial',
-    // 'imageupload',
+    'ngMaterialSidemenu',
+    'imageupload',
     'productAuction'
 ]);
 

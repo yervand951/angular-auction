@@ -57,22 +57,19 @@ class ProductController extends Controller
 
         $product = $this->model->create([
             'name'=> $request->name,
-            'realPrice'=> $request->price,
+            'price'=> $request->price,
             'description'=> $request->description
         ]);
-//        dd($product->id,$request->all());
-//
         $this->images($request->all(),$product->id);
 
         return $this->repository->show($product,$this->transformer);
     }
 
 
-    public function images($images,$id)
+    public function images($data,$id)
     {
+        foreach ($data['images'] as $image){
 
-        foreach ($images as $image){
-            dd($images);
             $base64Data = explode(',',$image['resized']['dataURL']);
             $imageData = base64_decode(last($base64Data));
             $file = 'images/upload/product/'.$id.'/'. uniqid() . '.png';
