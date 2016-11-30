@@ -39,7 +39,7 @@ angular.module('auctionModule').config(['$stateProvider' ,'$urlRouterProvider',f
         .state('product', {
             url: "/product/:id",
             template: "<single-product-module></single-product-module>",
-            controller: ['$scope','$stateParams',function($scope,$stateParams){
+            controller: ['$scope','$stateParams','socketService',function($scope,$stateParams,socketService){
                 $scope.product =  JSON.parse(localStorage.getItem('products'))[$stateParams.id];
                 console.log($scope.product);
             }]

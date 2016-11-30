@@ -106,4 +106,8 @@ class AuctionController extends Controller
     {
         //
     }
+
+    public function socket(){
+        return 'test';
+    }
 }

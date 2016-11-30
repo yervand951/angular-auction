@@ -113,4 +113,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [ 'concat' , 'sass','cssmin']);
     grunt.registerTask('build', [ 'concat:js_app' ]);
+    grunt.registerTask('js_def', [ 'concat' ]);
 };
