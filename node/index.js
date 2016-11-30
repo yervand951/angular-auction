@@ -18,3 +18,4 @@ db.query('SELECT * FROM auctions',function (err, rows, fields) {
         });
     });
 })
+
