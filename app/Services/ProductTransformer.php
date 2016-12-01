@@ -13,7 +13,7 @@ class ProductTransformer extends  TransformerAbstract{
             'id' => $product->id,
             'name' => $product->name,
             'description' => $product->description,
-            'price' => $product->realPrice,
+            'price' => $product->price,
             'images' => $this->images($product->id)
         ];
     }

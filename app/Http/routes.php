@@ -1,5 +1,5 @@
 <?php
-
+//Route::get('/socket.io','AuctionController@socket');
 
 Route::group(['prefix'=>'/','middleware' => 'angular'],function (){
     Route::auth();
@@ -27,6 +27,7 @@ Route::group(['prefix'=>'/','middleware' => 'angular'],function (){
     Route::resource('products','AuctionController' ,['only' => [
         'index'
     ]]);
+
 
     Route::group(['prefix'=>'admin','middleware'=>'angular'],function (){
         Route::resource('/','ProductController');
