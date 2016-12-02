@@ -8,7 +8,8 @@ angular.module('adminPanel',[
     'ngMaterial',
     'ngMaterialSidemenu',
     'imageupload',
-    'productAuction'
+    'productAuction',
+    'ngMessages'
 ]);
 
 angular.module('adminPanel').run([

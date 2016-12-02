@@ -7,7 +7,7 @@
         var socket = io.connect('auction.am:8080');
 
         socket.on('connect', function () {
-            socket.emit('fsvsdf on world', {my:'data'});
+            socket.emit('world', {my:'data'});
         });
 
         socket.on('message', function (data) {

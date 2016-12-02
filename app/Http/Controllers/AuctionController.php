@@ -7,21 +7,24 @@ use App\Services\AuctionTransformer;
 use App\Repositories\BaseRepository;
 use App\Auction;
 use App\Http\Requests;
+use App\AuctionMongo;
 
 class AuctionController extends Controller
 {
 
-    private $model , $transformer , $repository;
+    private $model , $transformer , $repository ,$mongo;
 
     public function __construct(
         Auction $auction,
         AuctionTransformer $auctionTransformer,
-        BaseRepository $baseRepository
+        BaseRepository $baseRepository,
+        AuctionMongo $auctionMongo
     )
     {
         $this->model = $auction;
         $this->transformer = $auctionTransformer;
         $this->repository = $baseRepository;
+        $this->mongo = $auctionMongo;
     }
     /**
      * Display a listing of the resource.
@@ -52,6 +55,8 @@ class AuctionController extends Controller
      */
     public function store(Request $request)
     {
+        dd(\DB::connection('mongodb')->collection('auctions')->get());
+
         $auction = $this->model->create([
             'start'=> $request->start,
             'stop'=> $request->stop,
@@ -59,7 +64,7 @@ class AuctionController extends Controller
             'startPrice'=> $request->startPrice
             ]);
 
-            return $this->repository->show($auction,$this->transformer);
+        return $this->repository->show($auction,$this->transformer);
     }
 
     /**

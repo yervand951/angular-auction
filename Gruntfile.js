@@ -41,6 +41,7 @@ module.exports = function(grunt) {
                     'node_modules/angular-aria/angular-aria.min.js',
                     'node_modules/angular-jk-carousel/dist/jk-carousel.min.js',
                     'node_modules/angular-material/angular-material.min.js',
+                    'node_modules/angular-messages/angular-messages.min.js',
                     'node_modules/angular-material-sidemenu/dest/angular-material-sidemenu.js',
                     'angular/sotos.angular-slider.min.js'
                 ],

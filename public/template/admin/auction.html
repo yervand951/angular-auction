@@ -26,6 +26,7 @@
             </div>
             <div class="col-md-45 col-sm-45" ng-controller="auctionController">
                 <div class=""ng-show="showCont['allProduct']" >
+
                     <h1>Auctions</h1>
                     <div ng-repeat="auction in auctions" class="col-md-20 col-sm-30">
                         <div >
@@ -43,7 +44,7 @@
                         <form  enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="start">Start Time</label>
-                                <input ng-model="Auction.start" id="start"  type="datetime-local">
+                                <input ng-model="Auction.start" id="start"  type="datetime-local" required>
                             </div>
                             <div class="form-group">
                                 <label for="real-price" >Start Price</label>

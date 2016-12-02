@@ -10,4 +10,8 @@ class AuctionMongo extends Eloquent
     use HybridRelations;
 
     protected $connection = 'mongodb';
+
+    protected $table = 'auctions';
+
+    protected $collection = 'auctions';
 }
