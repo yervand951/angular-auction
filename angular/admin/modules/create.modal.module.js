@@ -1,7 +1,16 @@
 angular.module('adminPanel')
- .controller('AppCtrl', function($scope, $mdDialog) {
+ .controller('AppCtrl', function($scope, $mdDialog,$rootScope) {
         $scope.status = '  ';
         $scope.customFullscreen = false;
+        $scope.dataValid = false;
+        $scope.auctionActive = false;
+        $scope.reviewActive = false;
+
+         $rootScope.$on('openAuctionCreateForm',function (ev,$args) {
+
+             $scope.auctionActive = true;
+             console.log($scope.auctionActive);
+         });
 
         $scope.showAlert = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
@@ -73,7 +82,7 @@ angular.module('adminPanel')
 
         $scope.showTabDialog = function(ev) {
             $mdDialog.show({
-                controller: DialogController,
+                controller: CreateProductController,
                 templateUrl: 'tabDialog.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
@@ -96,21 +105,6 @@ angular.module('adminPanel')
             });
         };
 
-        function DialogController($scope, $mdDialog) {
-            $scope.hide = function() {
-                $mdDialog.hide();
-            };
 
-            $scope.cancel = function() {
-                $mdDialog.cancel();
-            };
 
-            $scope.answer = function(answer) {
-                $mdDialog.hide(answer);
-            };
-        }
-     
-        function ProductValidator() {
-            
-        }
     });

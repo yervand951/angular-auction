@@ -1,5 +1,17 @@
-productAuction.controller('productCreateCtrl',['$http','$scope','$localStorage',function ($http,$scope,$localStorage) {
+var adminPanel = angular.module('adminPanel');
+
+adminPanel.controller('CreateProductController',CreateProductController)
+
+CreateProductController.$inject = ['$http','$scope','$localStorage','$rootScope'];
+
+function CreateProductController($http,$scope,$localStorage,$rootScope) {
     $scope.Product = {};
+    $scope.validator = ProductValidator;
+    $scope.validData = {};
+    $scope.create = create;
+    $scope.uploadComplete = uploadComplete;
+    $scope.auctionActive = true;
+
     var config = {
         headers: {
             'page': 'loaded',
@@ -7,14 +19,41 @@ productAuction.controller('productCreateCtrl',['$http','$scope','$localStorage',
         }
     };
 
-    $scope.create = function () {
-        console.log($scope.Product);
-        $http.post('admin/product', $scope.Product, config)
+    function create(Product) {
+        console.log(Product);
+        $http.post('admin/product',Product, config);
+        $scope.auctionActive = true;
+        // $rootScope.$broadcast('openAuctionCreateForm',{
+        //     formInvalid : true
+        // })
     };
 
-    $scope.uploadComplete = function (content) {
+    function uploadComplete(content) {
         $scope.response = JSON.parse(content);
         console.log('test');
+    };
+
+    function ProductValidator() {
+        if($scope.validData.name && $scope.validData.price && $scope.validData.description){
+            $rootScope.$broadcast('createProductFormValid',{
+                formInvalid : true
+            })
+        }else {
+            $rootScope.$broadcast('createProductFormValid',{
+                formInvalid : false
+            })
+        }
     }
-    }]
-);
+
+    $scope.hide = function() {
+        $mdDialog.hide();
+    };
+
+    $scope.cancel = function() {
+        $mdDialog.cancel();
+    };
+
+    $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+    };
+};
