@@ -80,37 +80,51 @@
                                                                resize-max-height="300"
                                                                resize-max-width="250" />
                                                         <img class="img-thumbnail" ng-repeat="img in Product.images" />
-
-
-                                                        <button type="submit" ng-click="create(Product)"  ng-disabled="createForm.$invalid" class="btn btn-default">Submit</button>
                                                     </form>
                                                 </div>
                                             </div>
                                         </md-content>
                                     </md-tab>
-                                    <md-tab label="Auction" ng-disabled="createForm.$invalid">
+                                    <md-tab label="Sentence" ng-disabled="createForm.$invalid">
                                         <md-content class="md-padding">
-                                            <h1 class="md-display-2" >Tab Two</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-                                            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-                                            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                                            <h1 class="md-display-1">Create Sentence</h1>
+                                            <div class="">
+                                                <div class="">
+                                                    <form name="reviewForm"  enctype="multipart/form-data">
+                                                        <div class="form-group">
+                                                            <label for="title">Subject:</label>
+                                                            <input name="name" type="text" ng-model="Review.title"  ng-minlength="3" required class="form-control" id="title">
+                                                            <div ng-messages="Review.title.$error">
+                                                                <div ng-message="required">This is required!</div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="rdescription">Message:</label>
+                                                            <textarea name="rdescription" class="form-control" ng-model="Review.description"  ng-minlength="5" required id="rdescription"></textarea>
+                                                            <div ng-messages="Review.description.$error">
+                                                                <div ng-message="required">This is required!</div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </md-content>
                                     </md-tab>
-                                    <md-tab label="Review"  ng-disabled="!reviewActive">
+                                    <md-tab label="Reviewsdef"   ng-disabled="reviewForm.$invalid || createForm.$invalid">
                                         <md-content class="md-padding">
-                                            <h1 class="md-display-2">Tab Three</h1>
-                                            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                                            <h3>Assess the form</h3>
+                                            <div>
+                                                <div star-rating ng-model="rating" max="10" on-rating-select="rateFunction(rating)"></div>
+
+                                                <div><strong>Rating</strong> {{rating}}</div>
+                                            </div>
+
+                                            <button type="submit" ng-click="create(Product,Review)"  ng-disabled="createForm.$invalid" class="btn btn-default">Submit</button>
                                         </md-content>
                                     </md-tab>
                                 </md-tabs>
                             </md-dialog-content>
-
-                            <md-dialog-actions layout="row">
-                                <span flex></span>
-                                <md-button ng-click="next()" ng-disabled="!isValidProductForm" >
-                                    Next
-                                </md-button>
-                            </md-dialog-actions>
                         </md-dialog>
                         </script></div>
                     <h1>Products</h1>

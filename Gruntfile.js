@@ -9,11 +9,10 @@ module.exports = function(grunt) {
                     'angular/auctionModule.js',
                     'angular/modules/**.js',
                     'angular/controllers/**.js',
+                    'angular/directives/**.js',
                     'angular/modules/auth/**.js',
                     'angular/modules/userAccount/**.js',
-                    // 'angular/admin/modules/**.js',
                     'angular/services/**.js',
-                    // 'angular/admin/controllers/**.js',
 
                                   ],
                 dest: 'public/scripts.min.js',
@@ -25,6 +24,7 @@ module.exports = function(grunt) {
                     'angular/admin/modules/**.js',
                     'angular/admin/services/**.js',
                     'angular/admin/controllers/**.js',
+                    'angular/admin/directives/**.js',
                                   ],
                 dest: 'public/adminScripts.min.js',
                 separator: ';'

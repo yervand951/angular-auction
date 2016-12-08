@@ -11,6 +11,11 @@ function CreateProductController($http,$scope,$localStorage,$rootScope) {
     $scope.create = create;
     $scope.uploadComplete = uploadComplete;
     $scope.auctionActive = true;
+    $scope.rating = 5;
+    $scope.isReadonly = true;
+    $scope.rateFunction = function(rating) {
+        console.log('Rating selected: ' + rating);
+    };
 
     var config = {
         headers: {

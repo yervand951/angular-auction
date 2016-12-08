@@ -1,16 +1,16 @@
 angular.module('adminPanel')
- .controller('AppCtrl', function($scope, $mdDialog,$rootScope) {
+    .controller('AppCtrl', function($scope, $mdDialog,$rootScope) {
         $scope.status = '  ';
         $scope.customFullscreen = false;
         $scope.dataValid = false;
         $scope.auctionActive = false;
         $scope.reviewActive = false;
 
-         $rootScope.$on('openAuctionCreateForm',function (ev,$args) {
+        $rootScope.$on('openAuctionCreateForm',function (ev,$args) {
 
-             $scope.auctionActive = true;
-             console.log($scope.auctionActive);
-         });
+            $scope.auctionActive = true;
+            console.log($scope.auctionActive);
+        });
 
         $scope.showAlert = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
@@ -66,7 +66,7 @@ angular.module('adminPanel')
 
         $scope.showAdvanced = function(ev) {
             $mdDialog.show({
-                controller: DialogController,
+                controller: CreateProductController,
                 // templateUrl: 'dialog1.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
