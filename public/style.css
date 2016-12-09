@@ -11033,4 +11033,78 @@ body li {
   color: #666;
 }
 
+custom-carousel {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  z-index: 555;
+  height: 100%;
+  overflow: hidden;
+}
+
+custom-carousel {
+  background-color: #000;
+}
+custom-carousel div {
+  display: inline;
+  position: absolute;
+  transition: left .6s;
+  top: 0px;
+}
+custom-carousel .slayd-cont {
+  width: 100%;
+}
+custom-carousel .slayd-cont div {
+  opacity: 0;
+  z-index: -1;
+}
+custom-carousel .slayd-cont img {
+  width: 100%;
+}
+custom-carousel .slayd-cont .active {
+  left: 0px;
+  opacity: 1 !important;
+  z-index: 56;
+}
+custom-carousel .slayd-cont .left {
+  z-index: 11;
+  left: -1250px;
+  opacity: 1 !important;
+}
+custom-carousel .slayd-cont .right {
+  z-index: 10;
+  left: 1250px;
+  opacity: 1 !important;
+}
+custom-carousel .navigation-cont {
+  width: 100%;
+  display: inline-block;
+  z-index: 555;
+  height: inherit;
+}
+custom-carousel .navigation-cont .turn-left {
+  position: absolute;
+  left: 7%;
+  top: calc(50% - 15px);
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  text-align: center;
+  padding: 3px;
+  border-radius: 7px;
+  background-color: #e8e8e8;
+}
+custom-carousel .navigation-cont .turn-right {
+  position: absolute;
+  right: 7%;
+  top: calc(50% - 15px);
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  text-align: center;
+  padding: 3px;
+  border-radius: 7px;
+  background-color: #e8e8e8;
+}
+
 /*# sourceMappingURL=style.css.map */
